@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package fflagrpc;
+
+
+service FeatureFlag {
+    rpc GetFlag(FlagQuery) returns (Flag) {}
+}
+
+message FlagQuery {
+    string accountId = 1;
+    string flagName = 2;
+}
+
+message Flag {
+    bool found = 1;
+    bool value = 2;
+}
