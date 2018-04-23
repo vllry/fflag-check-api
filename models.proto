@@ -1,10 +1,9 @@
 syntax = "proto3";
 
-package fflagrpc;
-
+package fflagcheckapi;
 
 service FeatureFlag {
-    rpc GetFlag(FlagQuery) returns (Flag) {}
+    rpc GetFlag(FlagQuery) returns (FlagResult) {}
 }
 
 message FlagQuery {
@@ -12,7 +11,7 @@ message FlagQuery {
     string flagName = 2;
 }
 
-message Flag {
+message FlagResult {
     bool found = 1;
     bool value = 2;
 }
